@@ -1,4 +1,8 @@
 package br.com.itau.transacoes.domain.transacao;
 
-public class TransacaoServiceImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class TransacaoServiceImpl  implements TransacaoService{
+
 }
