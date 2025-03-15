@@ -1,4 +1,8 @@
 package br.com.itau.transacoes.domain.estatistica;
 
-public class EstatisticaServiceImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class EstatisticaServiceImpl implements EstatisticaService {
+    
 }
