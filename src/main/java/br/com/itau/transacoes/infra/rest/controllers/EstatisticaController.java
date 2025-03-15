@@ -3,11 +3,13 @@ package br.com.itau.transacoes.infra.rest.controllers;
 
 import br.com.itau.transacoes.domain.estatistica.EstatisticaService;
 import br.com.itau.transacoes.infra.rest.dto.EstatisticaResponseDTO;
-import org.springframework.http.HttpStatus;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1/estatistica")
@@ -19,7 +21,7 @@ public class EstatisticaController {
     }
 
     @GetMapping(path = "/")
-    public ResponseEntity<EstatisticaResponseDTO> getEstatisticas(){
+    public ResponseEntity<EstatisticaResponseDTO> getEstatisticas(HttpServletRequest request){
         /* todo:implementar
         2.2.3. Calcular Estatísticas: GET /estatistica
 
@@ -48,10 +50,14 @@ public class EstatisticaController {
         Um JSON com os campos count, sum, avg, min e max todos preenchidos com seus respectivos valores
         Atenção! Quando não houverem transações nos últimos 60 segundos considere todos os valores como 0 (zero)
         * */
+        Long inicioFiltroEmSegundos = 60L;
 
-
-
-        return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        Optional<Object> optionalTempoInicialEmSegundos = Optional.ofNullable(request.getParameter("inicioFiltroEmSegundos"));
+        if(optionalTempoInicialEmSegundos.isPresent()){
+            inicioFiltroEmSegundos = Long.parseLong((String) optionalTempoInicialEmSegundos.get());
+        }
+        EstatisticaResponseDTO estatistica = estatisticaService.getEstatistica(inicioFiltroEmSegundos);
+        return  ResponseEntity.ok(estatistica);
     }
 
 }

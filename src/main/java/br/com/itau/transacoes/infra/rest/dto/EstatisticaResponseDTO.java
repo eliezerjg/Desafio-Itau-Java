@@ -10,6 +10,16 @@ public class EstatisticaResponseDTO implements Serializable {
     private BigDecimal min;
     private BigDecimal max;
 
+    public static EstatisticaResponseDTO filledWithZeroInstance(){
+        EstatisticaResponseDTO empty = new  EstatisticaResponseDTO();
+        empty.setCount(0);
+        empty.setSum(BigDecimal.ZERO);
+        empty.setAvg(BigDecimal.ZERO);
+        empty.setMin(BigDecimal.ZERO);
+        empty.setMax(BigDecimal.ZERO);
+        return empty;
+    }
+
     public int getCount() {
         return count;
     }
