@@ -19,22 +19,22 @@ public class EstatisticaUtils {
 
     public BigDecimal getSum(){
         //todo : implementar cologicantagem da soma total de valores
-        return 0;
+        return BigDecimal.ZERO;
     }
 
     public BigDecimal getAvg(){
         //todo : implementar logica do valor medio de transacao
-        return 0;
+        return BigDecimal.ZERO;
     }
 
     public BigDecimal getMin(){
         //todo : implementar logica do valor minimo de transacao
-        return 0;
+        return BigDecimal.ZERO;
     }
 
     public BigDecimal getMax(){
         //todo : implementar logica do valor maximo de transacao
-        return 0;
+        return BigDecimal.ZERO;
     }
 
 }

@@ -21,7 +21,7 @@ public class TransacaoController {
     @PostMapping(path = "/")
     public ResponseEntity<Void> criarTransacao(TransacaoRequestDTO dto){
         transacaoService.criarTransacao(dto);
-       return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/")

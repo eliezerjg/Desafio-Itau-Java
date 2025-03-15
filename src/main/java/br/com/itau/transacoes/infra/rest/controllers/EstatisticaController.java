@@ -19,8 +19,8 @@ public class EstatisticaController {
     }
 
     @GetMapping(path = "/")
-    public ResponseEntity<EstatisticaResponseDTO> getEstatisticas(HttpServletRequest request,
-        @RequestParam(required = false, defaultValue = "60") long inicioFiltroEmSegundos ){
+    public ResponseEntity<EstatisticaResponseDTO> getEstatisticas(@RequestParam(required = false, defaultValue = "60")
+                                                                      long inicioFiltroEmSegundos ){
         /* todo:implementar
         2.2.3. Calcular Estatísticas: GET /estatistica
 

@@ -1,7 +1,7 @@
 package br.com.itau.transacoes.domain.estatistica;
 
 import br.com.itau.transacoes.infra.database.fakedb.FakeDBRepository;
-import br.com.itau.transacoes.infra.database.fakedb.FakeRepositoryDBImpl;
+import br.com.itau.transacoes.infra.database.fakedb.TransacaoRepositoryImpl;
 import br.com.itau.transacoes.infra.database.models.Transacao;
 import br.com.itau.transacoes.infra.rest.dto.EstatisticaResponseDTO;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class EstatisticaServiceImpl implements EstatisticaService {
 
-    FakeDBRepository<Transacao> repository = new FakeRepositoryDBImpl();
+    FakeDBRepository<Transacao> repository = new TransacaoRepositoryImpl();
 
     @Override
     public EstatisticaResponseDTO getEstatistica(Long inicioFiltroEmSegundos) {
