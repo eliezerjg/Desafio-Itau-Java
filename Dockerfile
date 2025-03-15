@@ -1,0 +1,1 @@
+//todo: implementar uma containerizacao, vou usar provavelmente a imagem oficial da openjdk
