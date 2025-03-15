@@ -17,7 +17,7 @@ public class TransacaoServiceImpl  implements TransacaoService{
     FakeDBRepository<Transacao> repository = new TransacaoRepositoryImpl();
 
     @Override
-    public void criarTransacao(TransacaoRequestDTO dto) {
+    public void criarTransacao(TransacaoRequestDTO dto) throws DataFuturaException, DataPassadaException, TransacaoComValorNegativoException{
         /*
         todo:  implementar
         A API só aceitará transações que:
