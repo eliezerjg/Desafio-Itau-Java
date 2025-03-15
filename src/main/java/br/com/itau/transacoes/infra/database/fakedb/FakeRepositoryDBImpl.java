@@ -5,6 +5,13 @@ import java.util.List;
 
 
 public class FakeRepositoryDBImpl implements FakeDBRepository{
+
+    @Override
+    public List getAllByStartTime(Long inicioFiltroEmSegundos) {
+        // todo: implementar listagem e filtro
+        return List.of();
+    }
+
     @Override
     public List getAll() {
         return List.of();

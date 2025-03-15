@@ -1,9 +1,10 @@
 package br.com.itau.transacoes.infra.rest.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
-public class TransacaoRequestDTO {
+public class TransacaoRequestDTO implements Serializable {
     private BigDecimal valor;
     private OffsetDateTime dataHora;
 
