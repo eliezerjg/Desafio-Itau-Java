@@ -5,8 +5,6 @@ import br.com.itau.transacoes.infra.database.fakedb.FakeRepositoryDBImpl;
 import br.com.itau.transacoes.infra.database.models.Transacao;
 import br.com.itau.transacoes.infra.rest.dto.EstatisticaResponseDTO;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -50,15 +48,16 @@ public class EstatisticaServiceImpl implements EstatisticaService {
         if(transacoes.isEmpty()){
             return EstatisticaResponseDTO.filledWithZeroInstance();
         }
+        EstatisticaUtils utils = new EstatisticaUtils(transacoes);
 
-        EstatisticaResponseDTO estatistica = new EstatisticaResponseDTO();
-        estatistica.setCount(0);
-        estatistica.setSum(BigDecimal.ZERO);
-        estatistica.setAvg(BigDecimal.ZERO);
-        estatistica.setMin(BigDecimal.ZERO);
-        estatistica.setMax(BigDecimal.ZERO);
+        EstatisticaResponseDTO estatisticaCalculada = new EstatisticaResponseDTO();
+        estatisticaCalculada.setCount(utils.getCount());
+        estatisticaCalculada.setSum(utils.getSum());
+        estatisticaCalculada.setAvg(utils.getAvg());
+        estatisticaCalculada.setMin(utils.getMin());
+        estatisticaCalculada.setMax(utils.getMax());
 
 
-        return null;
+        return estatisticaCalculada;
     }
 }
