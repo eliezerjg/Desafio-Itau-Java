@@ -14,7 +14,7 @@ public class TransacaoRepositoryImpl implements TransacaoRepository {
     }
 
     @Override
-    public void deleteAll(Type t) {
+    public void deleteAll() {
         TransacaoMemoryDB.getInstance().deleteAll();
     }
 

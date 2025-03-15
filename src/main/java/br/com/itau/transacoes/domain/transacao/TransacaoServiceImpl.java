@@ -61,6 +61,6 @@ public class TransacaoServiceImpl  implements TransacaoService{
 
     @Override
     public void deletarTransacoes() {
-        repository.deleteAll(Transacao.class);
+        repository.deleteAll();
     }
 }
