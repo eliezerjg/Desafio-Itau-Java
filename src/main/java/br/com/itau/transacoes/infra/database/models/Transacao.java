@@ -1,12 +1,11 @@
 package br.com.itau.transacoes.infra.database.models;
 
-import br.com.itau.transacoes.infra.database.fakedb.WrapperEntity;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
-public class Transacao  extends WrapperEntity implements Serializable {
+public class Transacao  implements Serializable {
+    private Long id;
     private BigDecimal valor;
     private OffsetDateTime dataHora;
 
@@ -24,5 +23,13 @@ public class Transacao  extends WrapperEntity implements Serializable {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

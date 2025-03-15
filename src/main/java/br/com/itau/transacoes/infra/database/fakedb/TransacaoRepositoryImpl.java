@@ -6,21 +6,20 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 
-public class TransacaoRepositoryImpl implements FakeDBRepository<Transacao>{
+public class TransacaoRepositoryImpl implements TransacaoRepository {
 
     @Override
-    public List getAllByStartTime(Long inicioFiltroEmSegundos) {
-        // todo: implementar listagem e filtro
-        return List.of();
+    public List<Transacao> getAllByStartTime(Long inicioFiltroEmSegundos) {
+        return TransacaoMemoryDB.getInstance().getAllByStartTime(inicioFiltroEmSegundos);
     }
 
     @Override
     public void deleteAll(Type t) {
-        // delete all from memory
+        TransacaoMemoryDB.getInstance().deleteAll();
     }
 
     @Override
-    public WrapperEntity create(WrapperEntity entity) {
+    public Transacao create(Transacao entity) {
         long randomLong = 1 + (long) (Math.random() * (1000 - 1));
         entity.setId(randomLong);
         // todo: save on memory

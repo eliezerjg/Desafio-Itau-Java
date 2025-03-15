@@ -3,7 +3,7 @@ package br.com.itau.transacoes.domain.transacao;
 import br.com.itau.transacoes.domain.transacao.exceptions.DataFuturaException;
 import br.com.itau.transacoes.domain.transacao.exceptions.DataPassadaException;
 import br.com.itau.transacoes.domain.transacao.exceptions.TransacaoComValorNegativoException;
-import br.com.itau.transacoes.infra.database.fakedb.FakeDBRepository;
+import br.com.itau.transacoes.infra.database.fakedb.TransacaoRepository;
 import br.com.itau.transacoes.infra.database.fakedb.TransacaoRepositoryImpl;
 import br.com.itau.transacoes.infra.database.models.Transacao;
 import br.com.itau.transacoes.infra.rest.dto.TransacaoRequestDTO;
@@ -14,7 +14,7 @@ import java.time.OffsetDateTime;
 
 @Service
 public class TransacaoServiceImpl  implements TransacaoService{
-    FakeDBRepository<Transacao> repository = new TransacaoRepositoryImpl();
+    TransacaoRepository repository = new TransacaoRepositoryImpl();
 
     @Override
     public void criarTransacao(TransacaoRequestDTO dto) throws DataFuturaException, DataPassadaException, TransacaoComValorNegativoException{
