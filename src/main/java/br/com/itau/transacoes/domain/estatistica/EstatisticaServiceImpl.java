@@ -6,6 +6,7 @@ import br.com.itau.transacoes.infra.database.models.Transacao;
 import br.com.itau.transacoes.infra.rest.dto.EstatisticaResponseDTO;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EstatisticaServiceImpl implements EstatisticaService {
@@ -13,7 +14,7 @@ public class EstatisticaServiceImpl implements EstatisticaService {
     FakeDBRepository<Transacao> repository = new TransacaoRepositoryImpl();
 
     @Override
-    public EstatisticaResponseDTO getEstatistica(Long inicioFiltroEmSegundos) {
+    public EstatisticaResponseDTO getEstatistica(Optional<Long> optionalInicioFiltroEmSegundos) {
         /* todo:implementar
         2.2.3. Calcular Estatísticas: GET /estatistica
 
@@ -43,7 +44,11 @@ public class EstatisticaServiceImpl implements EstatisticaService {
         Atenção! Quando não houverem transações nos últimos 60 segundos considere todos os valores como 0 (zero)
         * */
 
-        //inicioFiltroEmSegundos
+        long inicioFiltroEmSegundos = 60L;
+        if(optionalInicioFiltroEmSegundos.isPresent()){
+            inicioFiltroEmSegundos = optionalInicioFiltroEmSegundos.get();
+        }
+
         List<Transacao> transacoes = repository.getAllByStartTime(inicioFiltroEmSegundos);
         if(transacoes.isEmpty()){
             return EstatisticaResponseDTO.filledWithZeroInstance();
