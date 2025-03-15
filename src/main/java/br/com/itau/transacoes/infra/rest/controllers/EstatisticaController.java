@@ -19,7 +19,7 @@ public class EstatisticaController {
 
     @GetMapping(path = "/")
     public ResponseEntity<EstatisticaResponseDTO> getEstatisticas(@RequestParam(required = false)
-                                                                  Optional<Long> inicioFiltroEmSegundos ){
+                                                                  Long inicioFiltroEmSegundos ){
 
         EstatisticaResponseDTO estatistica = estatisticaService.getEstatistica(inicioFiltroEmSegundos);
         return  ResponseEntity.ok(estatistica);

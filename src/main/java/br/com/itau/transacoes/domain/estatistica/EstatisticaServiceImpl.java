@@ -14,7 +14,7 @@ public class EstatisticaServiceImpl implements EstatisticaService {
     FakeDBRepository<Transacao> repository = new TransacaoRepositoryImpl();
 
     @Override
-    public EstatisticaResponseDTO getEstatistica(Optional<Long> optionalInicioFiltroEmSegundos) {
+    public EstatisticaResponseDTO getEstatistica(Long parametroFiltroInicioFiltroEmSegundos) {
         /* todo:implementar
         2.2.3. Calcular Estatísticas: GET /estatistica
 
@@ -44,10 +44,7 @@ public class EstatisticaServiceImpl implements EstatisticaService {
         Atenção! Quando não houverem transações nos últimos 60 segundos considere todos os valores como 0 (zero)
         * */
 
-        long inicioFiltroEmSegundos = 60L;
-        if(optionalInicioFiltroEmSegundos.isPresent()){
-            inicioFiltroEmSegundos = optionalInicioFiltroEmSegundos.get();
-        }
+        Long inicioFiltroEmSegundos = Optional.ofNullable(parametroFiltroInicioFiltroEmSegundos).orElse(60L);
 
         List<Transacao> transacoes = repository.getAllByStartTime(inicioFiltroEmSegundos);
         if(transacoes.isEmpty()){

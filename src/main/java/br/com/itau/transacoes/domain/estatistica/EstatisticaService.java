@@ -6,5 +6,5 @@ import java.util.Optional;
 
 
 public interface EstatisticaService {
-    EstatisticaResponseDTO getEstatistica(Optional<Long> inicioFiltroEmSegundos);
+    EstatisticaResponseDTO getEstatistica(Long inicioFiltroEmSegundos);
 }
