@@ -40,7 +40,7 @@ public class TransacaoServiceImpl  implements TransacaoService{
 
         OffsetDateTime agora = OffsetDateTime.now();
 
-        // todo: provavelmente aqui teremos de implementar  uma tolerancia, imagino que 1 minuto
+        // todo: implementar se for no  dia anterior
         if(agora.isBefore(dto.getDataHora())){
             throw new DataPassadaException("A transacao nao deve ocorrer no passado");
         }
