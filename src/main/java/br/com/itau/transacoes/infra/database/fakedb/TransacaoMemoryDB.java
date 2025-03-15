@@ -21,11 +21,14 @@ public class TransacaoMemoryDB {
 
 
     public List<Transacao> getAllByStartTime(Long inicioFiltroEmSegundos) {
-        Long nowEpoch = Instant.now().getEpochSecond();
-        Long estimatedStart = nowEpoch - inicioFiltroEmSegundos;
-        // todo: fazer o filter aqui
-        return List.of();
+        long nowEpoch = Instant.now().getEpochSecond();
+        long estimatedStart = nowEpoch - inicioFiltroEmSegundos;
+
+        return getInstance().items.stream()
+                .filter(n -> n.getDataHora().toEpochSecond() >= estimatedStart)
+                .toList();
     }
+
 
     public void deleteAll() {
         getInstance().items = Collections.emptyList();
