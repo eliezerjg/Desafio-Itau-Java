@@ -2,7 +2,6 @@ package br.com.itau.transacoes.infra.database.fakedb;
 
 import br.com.itau.transacoes.infra.database.models.Transacao;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
 
@@ -22,7 +21,6 @@ public class TransacaoRepositoryImpl implements TransacaoRepository {
     public Transacao create(Transacao entity) {
         long randomLong = 1 + (long) (Math.random() * (1000 - 1));
         entity.setId(randomLong);
-        // todo: save on memory
-        return entity;
+        return TransacaoMemoryDB.getInstance().create(entity);
     }
 }
