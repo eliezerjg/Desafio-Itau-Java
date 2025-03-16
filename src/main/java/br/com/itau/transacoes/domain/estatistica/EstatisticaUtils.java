@@ -3,6 +3,7 @@ package br.com.itau.transacoes.domain.estatistica;
 import br.com.itau.transacoes.infra.database.models.Transacao;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Instant;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class EstatisticaUtils {
         this.inLastSeconds = inLastSeconds;
     }
 
+    // todo: escrever os testes e validar
     public int getCount(){
         long nowEpochSecond = Instant.now().getEpochSecond();
         long nowLastSeconds = nowEpochSecond - this.inLastSeconds;
@@ -34,6 +36,7 @@ public class EstatisticaUtils {
         return transacoesInLastSeconds.size();
     }
 
+    // todo: escrever os testes e validar
     public BigDecimal getSum(){
         long nowEpochSecond = Instant.now().getEpochSecond();
         long nowLastSeconds = nowEpochSecond - this.inLastSeconds;
@@ -46,20 +49,18 @@ public class EstatisticaUtils {
         return valorSum;
     }
 
+    // todo: escrever os testes e validar
     public BigDecimal getAvg(){
         BigDecimal totalValor = getSum();
         int totalTransacoes = this.transacoes.size();
-        //todo: verificar o arredondamento
-        return totalValor.divide(BigDecimal.valueOf(totalTransacoes));
+        return totalValor.divide(BigDecimal.valueOf(totalTransacoes), 3, RoundingMode.CEILING);
     }
 
 
-    // todo: iniciamos no index 0, pois essa classe so vai existir caso tenhamos transacoes
     // todo: escrever os testes e validar
     public BigDecimal getMin(){
         BigDecimal minValue = transacoes.getFirst().getValor();
 
-        // de 1, ignorando 0 ate o fim da lista
         for(int index = 1; index <= transacoes.size() - 1; index++ ){
             Transacao transacao = transacoes.get(index);
 

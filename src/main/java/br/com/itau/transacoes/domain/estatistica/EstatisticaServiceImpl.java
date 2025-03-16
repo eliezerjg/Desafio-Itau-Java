@@ -4,6 +4,9 @@ import br.com.itau.transacoes.infra.database.fakedb.TransacaoRepository;
 import br.com.itau.transacoes.infra.database.fakedb.TransacaoRepositoryImpl;
 import br.com.itau.transacoes.infra.database.models.Transacao;
 import br.com.itau.transacoes.infra.rest.dto.EstatisticaResponseDTO;
+import br.com.itau.transacoes.infra.rest.exception.RestExceptionHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +15,8 @@ import java.util.Optional;
 public class EstatisticaServiceImpl implements EstatisticaService {
 
     TransacaoRepository repository = new TransacaoRepositoryImpl();
+
+
 
     @Override
     public EstatisticaResponseDTO getEstatistica(Long parametroFiltroInicioFiltroEmSegundos) {

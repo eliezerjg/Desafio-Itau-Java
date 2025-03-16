@@ -23,10 +23,9 @@ public class TransacaoMemoryDB {
     // todo: fazer os testes e revisar
     public List<Transacao> getAllByStartTime(Long inicioFiltroEmSegundos) {
         long nowEpoch = Instant.now().getEpochSecond();
-        long estimatedStart = nowEpoch - inicioFiltroEmSegundos;
-
+        long fromStart = nowEpoch - inicioFiltroEmSegundos;
         List<Transacao> transacoesFiltradas = getInstance().items.stream()
-                .filter(n -> n.getDataHora().toEpochSecond() >= estimatedStart)
+                .filter(n -> n.getDataHora().toEpochSecond() >= fromStart)
                 .toList();
 
         return transacoesFiltradas;
