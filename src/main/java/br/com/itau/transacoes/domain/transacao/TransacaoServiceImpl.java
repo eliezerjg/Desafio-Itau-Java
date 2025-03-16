@@ -40,17 +40,12 @@ public class TransacaoServiceImpl  implements TransacaoService{
 
         OffsetDateTime agora = OffsetDateTime.now();
 
-        // todo: implementar se for no  dia anterior
-        if(agora.isBefore(dto.getDataHora())){
-            throw new DataPassadaException("A transacao nao deve ocorrer no passado");
-        }
-
-        if(agora.isAfter(dto.getDataHora())){
+        if(dto.getDataHora().isAfter(agora)){
             throw new DataFuturaException("A transacao nao deve ocorrer no futuro");
         }
 
         if(dto.getValor().compareTo(BigDecimal.ZERO) < 0){
-            throw new TransacaoComValorNegativoException("A transacao nao deve ocorrer no passado");
+            throw new TransacaoComValorNegativoException("Transacao nao deve ter valor negativo");
         }
 
         Transacao transacao = new Transacao();

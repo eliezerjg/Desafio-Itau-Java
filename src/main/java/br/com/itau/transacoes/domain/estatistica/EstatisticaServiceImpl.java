@@ -46,18 +46,18 @@ public class EstatisticaServiceImpl implements EstatisticaService {
 
         Long inicioFiltroEmSegundos = Optional.ofNullable(parametroFiltroInicioFiltroEmSegundos).orElse(60L);
 
-        List<Transacao> transacoes = repository.getAllByStartTime(inicioFiltroEmSegundos);
+        List<Transacao> transacoes = repository.getAllByStartTime( inicioFiltroEmSegundos );
         if(transacoes.isEmpty()){
             return EstatisticaResponseDTO.filledWithZeroInstance();
         }
         EstatisticaUtils utils = new EstatisticaUtils(transacoes, inicioFiltroEmSegundos);
 
         EstatisticaResponseDTO estatisticaCalculada = new EstatisticaResponseDTO();
-        estatisticaCalculada.setCount(utils.getCount());
-        estatisticaCalculada.setSum(utils.getSum());
-        estatisticaCalculada.setAvg(utils.getAvg());
-        estatisticaCalculada.setMin(utils.getMin());
-        estatisticaCalculada.setMax(utils.getMax());
+        estatisticaCalculada.setCount( utils.getCount() );
+        estatisticaCalculada.setSum( utils.getSum() );
+        estatisticaCalculada.setAvg( utils.getAvg() );
+        estatisticaCalculada.setMin( utils.getMin() );
+        estatisticaCalculada.setMax( utils.getMax() );
 
 
         return estatisticaCalculada;
