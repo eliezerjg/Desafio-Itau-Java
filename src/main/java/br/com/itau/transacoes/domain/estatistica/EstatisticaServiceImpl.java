@@ -50,7 +50,7 @@ public class EstatisticaServiceImpl implements EstatisticaService {
         if(transacoes.isEmpty()){
             return EstatisticaResponseDTO.filledWithZeroInstance();
         }
-        EstatisticaUtils utils = new EstatisticaUtils(transacoes);
+        EstatisticaUtils utils = new EstatisticaUtils(transacoes, inicioFiltroEmSegundos);
 
         EstatisticaResponseDTO estatisticaCalculada = new EstatisticaResponseDTO();
         estatisticaCalculada.setCount(utils.getCount());

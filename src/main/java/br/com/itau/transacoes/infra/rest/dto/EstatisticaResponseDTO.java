@@ -3,6 +3,7 @@ package br.com.itau.transacoes.infra.rest.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+
 public class EstatisticaResponseDTO implements Serializable {
     private int count;
     private BigDecimal sum;

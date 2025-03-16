@@ -3,38 +3,87 @@ package br.com.itau.transacoes.domain.estatistica;
 import br.com.itau.transacoes.infra.database.models.Transacao;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.List;
+
+/*
+*
+*       Campo	Significado	Obrigatório?
+        count	Quantidade de transações nos últimos 60 segundos	Sim
+        sum	Soma total do valor transacionado nos últimos 60 segundos	Sim
+        avg	Média do valor transacionado nos últimos 60 segundos	Sim
+        min	Menor valor transacionado nos últimos 60 segundos	Sim
+        max	Maior valor transacionado nos últimos 60 segundos	Sim
+*
+* */
+
 
 public class EstatisticaUtils {
     private List<Transacao> transacoes;
+    private Long inLastSeconds;
 
-    public EstatisticaUtils(List<Transacao> transacoes){
+    public EstatisticaUtils(List<Transacao> transacoes, Long inLastSeconds){
         this.transacoes = transacoes;
+        this.inLastSeconds = inLastSeconds;
     }
 
     public int getCount(){
-        //todo : implementar logica do contador
-        return 0;
+        long nowEpochSecond = Instant.now().getEpochSecond();
+        long nowLastSeconds = nowEpochSecond - this.inLastSeconds;
+        List<Transacao> transacoesInLastSeconds = this.transacoes.stream().filter(n -> n.getDataHora().toEpochSecond() >= nowLastSeconds).toList();
+        return transacoesInLastSeconds.size();
     }
 
     public BigDecimal getSum(){
-        //todo : implementar cologicantagem da soma total de valores
-        return BigDecimal.ZERO;
+        long nowEpochSecond = Instant.now().getEpochSecond();
+        long nowLastSeconds = nowEpochSecond - this.inLastSeconds;
+        List<Transacao> transacoesInLastSeconds = this.transacoes.stream().filter(n -> n.getDataHora().toEpochSecond() >= nowLastSeconds).toList();
+        BigDecimal valorSum = transacoesInLastSeconds.stream()
+                .map(Transacao::getValor)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+
+        return valorSum;
     }
 
     public BigDecimal getAvg(){
-        //todo : implementar logica do valor medio de transacao
-        return BigDecimal.ZERO;
+        BigDecimal totalValor = getSum();
+        int totalTransacoes = this.transacoes.size();
+        //todo: verificar o arredondamento
+        return totalValor.divide(BigDecimal.valueOf(totalTransacoes));
     }
 
+
+    // todo: iniciamos no index 0, pois essa classe so vai existir caso tenhamos transacoes
+    // todo: escrever os testes e validar
     public BigDecimal getMin(){
-        //todo : implementar logica do valor minimo de transacao
-        return BigDecimal.ZERO;
+        BigDecimal minValue = transacoes.getFirst().getValor();
+
+        // de 1, ignorando 0 ate o fim da lista
+        for(int index = 1; index <= transacoes.size() - 1; index++ ){
+            Transacao transacao = transacoes.get(index);
+
+            if(transacao.getValor().compareTo(minValue) < 0){
+                minValue = transacao.getValor();
+            }
+        }
+
+        return minValue;
     }
 
+    // todo: escrever os testes e validar
     public BigDecimal getMax(){
-        //todo : implementar logica do valor maximo de transacao
-        return BigDecimal.ZERO;
+        BigDecimal maxValue = transacoes.getFirst().getValor();
+
+        for(int index = 1; index <= transacoes.size() - 1; index++ ){
+            Transacao transacao = transacoes.get(index);
+
+            if(transacao.getValor().compareTo(maxValue) >= 0){
+                maxValue = transacao.getValor();
+            }
+        }
+
+        return maxValue;
     }
 
 }
