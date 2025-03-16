@@ -1,7 +1,6 @@
 package br.com.itau.transacoes.infra.rest.controllers;
 
 import br.com.itau.transacoes.domain.transacao.TransacaoService;
-import br.com.itau.transacoes.domain.transacao.exceptions.DataPassadaException;
 import br.com.itau.transacoes.infra.rest.dto.TransacaoRequestDTO;
 import br.com.itau.transacoes.sharedKernel.exception.ErrorVO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,6 +26,7 @@ public class TransacaoController {
     @PostMapping(path = "/")
     @Operation(summary = "cria uma transacao")
     @ApiResponses({
+            @ApiResponse(responseCode = "2-1", description = "Transacao criada"),
 
             @ApiResponse(responseCode = "422", description = "Data Futura",
                     content = @Content(schema = @Schema(implementation = ErrorVO.class))),

@@ -5,6 +5,7 @@ import br.com.itau.transacoes.domain.estatistica.EstatisticaService;
 import br.com.itau.transacoes.infra.rest.dto.EstatisticaResponseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class EstatisticaController {
         this.estatisticaService = estatisticaService;
     }
 
-    @GetMapping(path = "/")
+    @GetMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "tras as estatisticas apartir do filtro inicioFiltroEmSegundos ou padrao 60 segundos")
     public ResponseEntity<EstatisticaResponseDTO> getEstatisticas(@RequestParam(required = false)
                                                                   Long inicioFiltroEmSegundos ){
