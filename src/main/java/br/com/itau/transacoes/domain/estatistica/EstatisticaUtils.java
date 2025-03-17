@@ -29,7 +29,11 @@ public class EstatisticaUtils {
     public BigDecimal getSum(){
         long nowEpochSecond = Instant.now().getEpochSecond();
         long nowLastSeconds = nowEpochSecond - this.inLastSeconds;
-        List<Transacao> transacoesInLastSeconds = this.transacoes.stream().filter(n -> n.getDataHora().toEpochSecond() >= nowLastSeconds).toList();
+        List<Transacao> transacoesInLastSeconds = this.transacoes
+                .stream()
+                .filter(n -> n.getDataHora().toEpochSecond() >= nowLastSeconds)
+                .toList();
+
         BigDecimal valorSum = transacoesInLastSeconds.stream()
                 .map(Transacao::getValor)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
