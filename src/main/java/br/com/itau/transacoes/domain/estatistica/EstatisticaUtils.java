@@ -44,12 +44,21 @@ public class EstatisticaUtils {
     public BigDecimal getAvg(){
         BigDecimal totalValor = getSum();
         int totalTransacoes = this.transacoes.size();
+
+        if(totalTransacoes == 0){
+            return BigDecimal.ZERO;
+        }
+
         return totalValor.divide(BigDecimal.valueOf(totalTransacoes), 3, RoundingMode.CEILING);
     }
 
 
     // todo: escrever os testes e validar
     public BigDecimal getMin(){
+        if(transacoes.isEmpty()){
+            return BigDecimal.ZERO;
+        }
+
         BigDecimal minValue = transacoes.getFirst().getValor();
 
         for(int index = 1; index <= transacoes.size() - 1; index++ ){
@@ -65,6 +74,10 @@ public class EstatisticaUtils {
 
     // todo: escrever os testes e validar
     public BigDecimal getMax(){
+        if(transacoes.isEmpty()){
+            return BigDecimal.ZERO;
+        }
+
         BigDecimal maxValue = transacoes.getFirst().getValor();
 
         for(int index = 1; index <= transacoes.size() - 1; index++ ){
