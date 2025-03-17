@@ -33,7 +33,7 @@ EXTRAS:
 2 -  ✅ Containerização: Você consegue criar meios para disponibilizar sua aplicação como um container? OBS: Não é necessário publicar o container da sua aplicação!
 3 -  ✅ Logs: Sua aplicação informa o que está acontecendo enquanto ela trabalha? Isso é útil para ajudar as pessoas desenvolvedoras a solucionar eventuais problemas que possam ocorrer.
 4 -  ✅ Observabilidade: Sua API tem algum endpoint para verificação da saúde da aplicação (healthcheck)?
-5 -  ✅ no mesmo objeto de estatistica ) Performance: Você consegue estimar quanto tempo sua aplicação gasta para calcular as estatísticas?
+5 -  ✅ Performance: Você consegue estimar quanto tempo sua aplicação gasta para calcular as estatísticas?
 6 -  ✅ Tratamento de Erros: O Spring Boot dá às pessoas desenvolvedoras ferramentas para se melhorar o tratamento de erros padrão. Você consegue alterar os erros padrão para retornar quais erros ocorreram?
 7 -  ✅ Documentação da API: Você consegue documentar sua API? Existem ferramentas e padrões que podem te ajudar com isso!
 8 -  ✅ Documentação do Sistema: Sua aplicação provavelmente precisa ser construída antes de ser executada. Você consegue documentar como outra pessoa que pegou sua aplicação pela primeira vez pode construir e executar sua aplicação?
@@ -49,3 +49,15 @@ RODAR OS TESTES:
     2 - executar o comando no "/" no terminal: mvn test
 </pre>
 
+
+SAUDE DA APLICACAO:
+<pre>
+    1 - rodar o projeto
+    2 - acessar http://localhost:8080/actuator/health
+</pre>
+
+OBSERVABILIDADE DA APLICACAO:
+<pre>
+    1 - rodar o projeto
+    2 - acessar http://localhost:8080/actuator/prometheus
+</pre>
