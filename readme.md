@@ -7,15 +7,33 @@
 
 <hr/>
 
+#### Rodar o projeto:
+Opcao 1 - Sem docker:
+<pre>
+1 - Tenha o maven e o java instalaado
+2 - Compile o projeto no "/"  (rodando o comando mvn package)
+3 - Rode o projeto na pasta "/target" com o comando "java -jar service.jar"
+</pre>
+
+Opcao 2 - Com docker:
+<pre>
+1 - Compile o projeto no "/"  (rodando o comando mvn package)
+2 - rode docker compose up -d no "/" do projeto 
+3 - acesse http://ip-do-container:8080/swagger-ui/index.html#/
+</pre>
+
+
+<hr/>
+
 #### Documentacao:
 Opcao 1 - Sem docker:
 <pre>
 1 - Tenha o maven e o java instalaado
 2 - Compile o projeto no "/"  (rodando o comando mvn package)
-1 - Rode o projeto na pasta "/target" com o comando "java -jar service.jar" 
-2 - Acesse http://localhost:8080/swagger-ui/index.html#/
-3 - Se preferir pode baixar o OPEN API JSON em http://localhost:8080/v3/api-docs
-4 - Pode ser utilizado o Swagger editor para ler o JSON
+3 - Rode o projeto na pasta "/target" com o comando "java -jar service.jar" 
+4 - Acesse http://localhost:8080/swagger-ui/index.html#/
+5 - Se preferir pode baixar o OPEN API JSON em http://localhost:8080/v3/api-docs
+6 - Pode ser utilizado o Swagger editor para ler o JSON
 </pre>
 
 Opcao 2 - Com docker:
