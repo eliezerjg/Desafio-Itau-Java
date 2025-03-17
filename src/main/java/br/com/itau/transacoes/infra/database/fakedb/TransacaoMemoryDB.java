@@ -32,10 +32,12 @@ public class TransacaoMemoryDB {
     }
 
 
+    // todo: fazer os testes e revisar
     public void deleteAll() {
         getInstance().items = Collections.emptyList();
     }
 
+    // todo: fazer os testes e revisar
     public Transacao create(Transacao entity) {
         getInstance().items.add(entity);
         return entity;

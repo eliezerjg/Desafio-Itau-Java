@@ -7,18 +7,6 @@ import java.math.RoundingMode;
 import java.time.Instant;
 import java.util.List;
 
-/*
-*
-*       Campo	Significado	Obrigatório?
-        count	Quantidade de transações nos últimos 60 segundos	Sim
-        sum	Soma total do valor transacionado nos últimos 60 segundos	Sim
-        avg	Média do valor transacionado nos últimos 60 segundos	Sim
-        min	Menor valor transacionado nos últimos 60 segundos	Sim
-        max	Maior valor transacionado nos últimos 60 segundos	Sim
-*
-* */
-
-
 public class EstatisticaUtils {
     private List<Transacao> transacoes;
     private Long inLastSeconds;
@@ -32,7 +20,10 @@ public class EstatisticaUtils {
     public int getCount(){
         long nowEpochSecond = Instant.now().getEpochSecond();
         long nowLastSeconds = nowEpochSecond - this.inLastSeconds;
-        List<Transacao> transacoesInLastSeconds = this.transacoes.stream().filter(n -> n.getDataHora().toEpochSecond() >= nowLastSeconds).toList();
+        List<Transacao> transacoesInLastSeconds = this.transacoes
+                .stream()
+                .filter(n -> n.getDataHora().toEpochSecond() >= nowLastSeconds)
+                .toList();
         return transacoesInLastSeconds.size();
     }
 
