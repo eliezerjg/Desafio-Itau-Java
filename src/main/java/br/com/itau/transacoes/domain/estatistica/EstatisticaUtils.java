@@ -16,7 +16,6 @@ public class EstatisticaUtils {
         this.inLastSeconds = inLastSeconds;
     }
 
-    // todo: escrever os testes e validar
     public int getCount(){
         long nowEpochSecond = Instant.now().getEpochSecond();
         long nowLastSeconds = nowEpochSecond - this.inLastSeconds;
@@ -27,7 +26,6 @@ public class EstatisticaUtils {
         return transacoesInLastSeconds.size();
     }
 
-    // todo: escrever os testes e validar
     public BigDecimal getSum(){
         long nowEpochSecond = Instant.now().getEpochSecond();
         long nowLastSeconds = nowEpochSecond - this.inLastSeconds;
@@ -40,7 +38,6 @@ public class EstatisticaUtils {
         return valorSum;
     }
 
-    // todo: escrever os testes e validar
     public BigDecimal getAvg(){
         BigDecimal totalValor = getSum();
         int totalTransacoes = this.transacoes.size();
@@ -53,7 +50,6 @@ public class EstatisticaUtils {
     }
 
 
-    // todo: escrever os testes e validar
     public BigDecimal getMin(){
         if(transacoes.isEmpty()){
             return BigDecimal.ZERO;
@@ -72,7 +68,6 @@ public class EstatisticaUtils {
         return minValue;
     }
 
-    // todo: escrever os testes e validar
     public BigDecimal getMax(){
         if(transacoes.isEmpty()){
             return BigDecimal.ZERO;

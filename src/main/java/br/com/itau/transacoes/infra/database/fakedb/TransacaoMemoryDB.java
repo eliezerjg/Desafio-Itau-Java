@@ -19,7 +19,6 @@ public class TransacaoMemoryDB {
     }
 
 
-    // todo: fazer os testes e revisar
     public List<Transacao> getAllByStartTime(Long inicioFiltroEmSegundos) {
         long nowEpoch = Instant.now().getEpochSecond();
         long fromStart = nowEpoch - inicioFiltroEmSegundos;
@@ -31,12 +30,10 @@ public class TransacaoMemoryDB {
     }
 
 
-    // todo: fazer os testes e revisar
     public void deleteAll() {
         getInstance().items = new ArrayList<>();
     }
 
-    // todo: fazer os testes e revisar
     public Transacao create(Transacao entity) {
         getInstance().items.add(entity);
         return entity;
