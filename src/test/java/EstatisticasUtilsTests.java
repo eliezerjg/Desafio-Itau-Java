@@ -122,6 +122,24 @@ public class EstatisticasUtilsTests {
     }
 
     @Test
+    public void onGetMin_ShouldNotFail_When1ItemInstance(){
+
+        Transacao transacao = new Transacao();
+        transacao.setDataHora(OffsetDateTime.now());
+        transacao.setValor(BigDecimal.TEN);
+        EstatisticaUtils utils = new EstatisticaUtils(
+                List.of(
+                        transacao
+                ),
+                2000L
+        );
+
+        BigDecimal min = utils.getMin();
+
+        assertEquals(BigDecimal.TEN, min);
+    }
+
+    @Test
     public void onGetMin_ShouldNotFail_When5ItemsInstance(){
 
         Transacao transacao1 = new Transacao();
@@ -161,6 +179,24 @@ public class EstatisticasUtilsTests {
 
         BigDecimal max = utils.getMax();
         assertEquals(BigDecimal.ZERO, max);
+    }
+
+    @Test
+    public void onGetMax_ShouldNotFail_When1ItemInstance(){
+
+        Transacao transacao = new Transacao();
+        transacao.setValor(BigDecimal.TEN);
+        transacao.setDataHora(OffsetDateTime.now());
+
+        EstatisticaUtils utils = new EstatisticaUtils(
+                List.of(
+                        transacao
+                ),
+                2000L
+        );
+
+        BigDecimal max = utils.getMax();
+        assertEquals(BigDecimal.TEN, max);
     }
 
     @Test
