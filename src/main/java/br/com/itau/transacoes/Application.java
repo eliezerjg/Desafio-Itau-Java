@@ -10,7 +10,7 @@ import java.util.TimeZone;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
-    @Value("${br.com.itau.transacoes.timezone:UTC}")
+    @Value("${br.com.itau.transacoes.timezone}")
     private String timeZone;
 
     public static void main(String[] args) {
