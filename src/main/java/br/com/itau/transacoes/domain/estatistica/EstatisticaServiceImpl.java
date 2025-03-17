@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class EstatisticaServiceImpl implements EstatisticaService {
 
-    TransacaoRepository repository = new TransacaoRepositoryImpl();
+    private final TransacaoRepository repository = new TransacaoRepositoryImpl();
 
 
 

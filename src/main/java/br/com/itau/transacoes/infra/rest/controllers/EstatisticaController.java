@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/api/v1/estatistica")
 @Tag(name = "Estatistica", description = "operacoes relacionadas as estatisticas de transacao")
 public class EstatisticaController {
-    private EstatisticaService estatisticaService;
+    private final EstatisticaService estatisticaService;
 
     public EstatisticaController(EstatisticaService estatisticaService){
         this.estatisticaService = estatisticaService;

@@ -10,7 +10,7 @@ import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TransacaoRepositoryTests {
-    private TransacaoRepository repository = new TransacaoRepositoryImpl();
+    private final TransacaoRepository repository = new TransacaoRepositoryImpl();
 
     @Test
     public void shouldPassGetAllByStartTimeWhenNormalCall(){

@@ -10,7 +10,7 @@ import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TransacaoMemoryDBTests {
-    TransacaoMemoryDB db = null;
+    private TransacaoMemoryDB db = null;
 
     @BeforeEach
     public void init(){

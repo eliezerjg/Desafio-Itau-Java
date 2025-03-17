@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EstatisticasServiceTests {
 
-    public EstatisticaService estatisticaService;
+    private EstatisticaService estatisticaService;
 
 
     @BeforeEach

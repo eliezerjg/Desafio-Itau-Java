@@ -8,8 +8,8 @@ import java.time.Instant;
 import java.util.List;
 
 public class EstatisticaUtils {
-    private List<Transacao> transacoes;
-    private Long inLastSeconds;
+    private final List<Transacao> transacoes;
+    private final Long inLastSeconds;
 
     public EstatisticaUtils(List<Transacao> transacoes, Long inLastSeconds){
         this.transacoes = transacoes;

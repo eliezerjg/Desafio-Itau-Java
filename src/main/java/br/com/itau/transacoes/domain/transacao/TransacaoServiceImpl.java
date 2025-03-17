@@ -13,7 +13,7 @@ import java.time.OffsetDateTime;
 
 @Service
 public class TransacaoServiceImpl  implements TransacaoService{
-    TransacaoRepository repository = new TransacaoRepositoryImpl();
+    private final TransacaoRepository repository = new TransacaoRepositoryImpl();
 
     @Override
     public void criarTransacao(TransacaoRequestDTO dto) throws DataFuturaException, TransacaoComValorNegativoException{

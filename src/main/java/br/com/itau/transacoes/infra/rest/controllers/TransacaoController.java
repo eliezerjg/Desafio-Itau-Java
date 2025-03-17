@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/api/v1/transacao")
 @Tag(name = "Transacao", description = "operacoes relacionadas a transacao")
 public class TransacaoController {
-    private TransacaoService transacaoService;
+    private final TransacaoService transacaoService;
 
     public TransacaoController(TransacaoService transacaoService){
         this.transacaoService = transacaoService;
