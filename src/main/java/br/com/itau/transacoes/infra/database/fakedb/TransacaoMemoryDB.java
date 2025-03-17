@@ -4,7 +4,6 @@ import br.com.itau.transacoes.infra.database.models.Transacao;
 
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class TransacaoMemoryDB {
@@ -34,7 +33,7 @@ public class TransacaoMemoryDB {
 
     // todo: fazer os testes e revisar
     public void deleteAll() {
-        getInstance().items = Collections.emptyList();
+        getInstance().items = new ArrayList<>();
     }
 
     // todo: fazer os testes e revisar

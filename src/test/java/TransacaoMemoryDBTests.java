@@ -1,6 +1,5 @@
 import br.com.itau.transacoes.infra.database.fakedb.TransacaoMemoryDB;
 import br.com.itau.transacoes.infra.database.models.Transacao;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
