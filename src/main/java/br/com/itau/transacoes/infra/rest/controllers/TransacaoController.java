@@ -26,15 +26,9 @@ public class TransacaoController {
     @PostMapping(path = "/")
     @Operation(summary = "cria uma transacao")
     @ApiResponses({
-            @ApiResponse(responseCode = "2-1", description = "Transacao criada"),
+            @ApiResponse(responseCode = "201", description = "Transacao criada"),
 
-            @ApiResponse(responseCode = "422", description = "Data Futura",
-                    content = @Content(schema = @Schema(implementation = ErrorVO.class))),
-
-            @ApiResponse(responseCode = "422", description = "Data Passada",
-                    content = @Content(schema = @Schema(implementation = ErrorVO.class))),
-
-            @ApiResponse(responseCode = "422", description = "Transacao com Valor Negativo",
+            @ApiResponse(responseCode = "422", description = "Transacao Nao deve ocorrer no futuro ou Transacao com Valor Negativo",
                     content = @Content(schema = @Schema(implementation = ErrorVO.class)))
 
     })
