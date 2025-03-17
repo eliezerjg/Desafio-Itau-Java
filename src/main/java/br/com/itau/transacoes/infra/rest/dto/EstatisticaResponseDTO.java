@@ -10,6 +10,7 @@ public class EstatisticaResponseDTO implements Serializable {
     private BigDecimal avg;
     private BigDecimal min;
     private BigDecimal max;
+    private Long epochExecutionTimeInSeconds;
 
     public static EstatisticaResponseDTO filledWithZeroInstance(){
         EstatisticaResponseDTO empty = new  EstatisticaResponseDTO();
@@ -18,6 +19,7 @@ public class EstatisticaResponseDTO implements Serializable {
         empty.setAvg(BigDecimal.ZERO);
         empty.setMin(BigDecimal.ZERO);
         empty.setMax(BigDecimal.ZERO);
+        empty.setEpochExecutionTimeInSeconds(0L);
         return empty;
     }
 
@@ -59,5 +61,13 @@ public class EstatisticaResponseDTO implements Serializable {
 
     public void setMax(BigDecimal max) {
         this.max = max;
+    }
+
+    public Long getEpochExecutionTimeInSeconds() {
+        return epochExecutionTimeInSeconds;
+    }
+
+    public void setEpochExecutionTimeInSeconds(Long epochExecutionTimeInSeconds) {
+        this.epochExecutionTimeInSeconds = epochExecutionTimeInSeconds;
     }
 }

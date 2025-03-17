@@ -5,6 +5,8 @@ import br.com.itau.transacoes.infra.database.fakedb.TransacaoRepositoryImpl;
 import br.com.itau.transacoes.infra.database.models.Transacao;
 import br.com.itau.transacoes.infra.rest.dto.EstatisticaResponseDTO;
 import org.springframework.stereotype.Service;
+
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +19,7 @@ public class EstatisticaServiceImpl implements EstatisticaService {
 
     @Override
     public EstatisticaResponseDTO getEstatistica(Long parametroFiltroInicioFiltroEmSegundos) {
+        Long startedAt = Instant.now().getEpochSecond();
 
         Long inicioFiltroEmSegundos = Optional.ofNullable(parametroFiltroInicioFiltroEmSegundos).orElse(60L);
 
@@ -33,6 +36,9 @@ public class EstatisticaServiceImpl implements EstatisticaService {
         estatisticaCalculada.setMin( utils.getMin() );
         estatisticaCalculada.setMax( utils.getMax() );
 
+
+        Long endedAt = Instant.now().getEpochSecond() - startedAt;
+        estatisticaCalculada.setEpochExecutionTimeInSeconds(endedAt);
 
         return estatisticaCalculada;
     }

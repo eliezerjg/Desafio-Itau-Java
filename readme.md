@@ -29,14 +29,14 @@ opcao 2 - Com docker:
 
 PROGRESSO DOS EXTRAS:
 <pre>
-1 - !!! (todo: fazer com junit) Testes automatizados: Sejam unitários e/ou funcionais, testes automatizados são importantes e ajudam a evitar problemas no futuro. Se você fizer testes automatizados, atente-se na efetividade dos seus testes! Por exemplo, testar apenas os "caminhos felizes" não é muito efetivo.
-2 - !!! (todo: fazer com imagem openjdk)  Containerização: Você consegue criar meios para disponibilizar sua aplicação como um container? OBS: Não é necessário publicar o container da sua aplicação!
+1 - (feito com junit)Testes automatizados: Sejam unitários e/ou funcionais, testes automatizados são importantes e ajudam a evitar problemas no futuro. Se você fizer testes automatizados, atente-se na efetividade dos seus testes! Por exemplo, testar apenas os "caminhos felizes" não é muito efetivo.
+2 - (feito com openjdk)  Containerização: Você consegue criar meios para disponibilizar sua aplicação como um container? OBS: Não é necessário publicar o container da sua aplicação!
 3 - (feito com log4j) Logs: Sua aplicação informa o que está acontecendo enquanto ela trabalha? Isso é útil para ajudar as pessoas desenvolvedoras a solucionar eventuais problemas que possam ocorrer.
 4 - (feito com actuator) Observabilidade: Sua API tem algum endpoint para verificação da saúde da aplicação (healthcheck)?
-5 - !!! (todo: adicionar no mesmo objeto de estatistica ) Performance: Você consegue estimar quanto tempo sua aplicação gasta para calcular as estatísticas?
+5 - (feito adicionado no mesmo objeto de estatistica ) Performance: Você consegue estimar quanto tempo sua aplicação gasta para calcular as estatísticas?
 6 - (feito com exception handler com estrategia de domain exception ) Tratamento de Erros: O Spring Boot dá às pessoas desenvolvedoras ferramentas para se melhorar o tratamento de erros padrão. Você consegue alterar os erros padrão para retornar quais erros ocorreram?
 7 - (feito em runtime com openapi - spring doc) Documentação da API: Você consegue documentar sua API? Existem ferramentas e padrões que podem te ajudar com isso!
 8 - (feito no reaadme ) Documentação do Sistema: Sua aplicação provavelmente precisa ser construída antes de ser executada. Você consegue documentar como outra pessoa que pegou sua aplicação pela primeira vez pode construir e executar sua aplicação?
-9 - (adicionado parametro via url) Configurações: Você consegue deixar sua aplicação configurável em relação a quantidade de segundos para calcular as estatísticas? Por exemplo: o padrão é 60 segundos, mas e se o usuário quiser 120 segundos?
+9 - (feito adicionado parametro via url) Configurações: Você consegue deixar sua aplicação configurável em relação a quantidade de segundos para calcular as estatísticas? Por exemplo: o padrão é 60 segundos, mas e se o usuário quiser 120 segundos?
 </pre>
 
