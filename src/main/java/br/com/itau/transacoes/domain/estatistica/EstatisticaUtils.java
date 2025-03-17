@@ -3,6 +3,7 @@ package br.com.itau.transacoes.domain.estatistica;
 import br.com.itau.transacoes.infra.database.models.Transacao;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 import java.time.Instant;
 import java.util.List;
@@ -36,7 +37,8 @@ public class EstatisticaUtils {
 
         BigDecimal valorSum = transacoesInLastSeconds.stream()
                 .map(Transacao::getValor)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .round(new MathContext(3, RoundingMode.CEILING));
 
 
         return valorSum;
