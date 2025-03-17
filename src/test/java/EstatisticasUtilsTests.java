@@ -174,8 +174,8 @@ public class EstatisticasUtilsTests {
         BigDecimal min = utils.getMin();
 
         //assert
-        String rounding_with_3_cases_8 = "5.00";
-        assertEquals(new BigDecimal(rounding_with_3_cases_8), min);
+        String rounding_with_3_cases_5_00 = "5.00";
+        assertEquals(new BigDecimal(rounding_with_3_cases_5_00), min);
     }
 
     @Test
@@ -222,8 +222,8 @@ public class EstatisticasUtilsTests {
         BigDecimal max = utils.getMax();
 
         //assert
-        String rounding_with_3_cases_8 = "10.00";
-        assertEquals(new BigDecimal(rounding_with_3_cases_8), max);
+        String rounding_with_3_cases_10_00 = "10.00";
+        assertEquals(new BigDecimal(rounding_with_3_cases_10_00), max);
     }
 
 
