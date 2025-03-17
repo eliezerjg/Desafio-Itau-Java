@@ -4,8 +4,27 @@
 #### Sobre: Desafio tecnico Programador Java
 #### Tecnologias: Java /  Spring Boot
 
+<br/>
+<br/>
 
-<hr/>
+<hr />
+
+### Dependencias
+<br/>
+
+##### MacOS - Brew
+1 - rode no terminal: brew install openjdk@21 && brew install maven
+
+<hr />
+<br />
+
+##### Windows - Chocolatey
+2 - rode no terminal:
+choco install openjdk --version=21.0.0 && choco install maven
+
+
+<hr/> 
+<br/><br/>
 
 #### Rodar o projeto:
 Opcao 1 - Sem docker:
